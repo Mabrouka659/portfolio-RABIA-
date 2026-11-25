@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rabia – Démos pour l’École Familles Sereines</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef3fb;--ink:#14243d;--mut:#55657f;--line:#d3ddee;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a2c;--ink:#e8effb;--mut:#a3b3cc;--line:#2c3e5c}}
+:root[data-theme="dark"]{--bg:#0f1a2c;--ink:#e8effb;--mut:#a3b3cc;--line:#2c3e5c}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 17px/1.6 "Nunito",system-ui,sans-serif}
+h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding:22px 16px 50px}
+.intro h1{font-size:clamp(28px,5vw,44px);line-height:1.1;font-weight:800;margin-bottom:10px}
+.intro p{margin:0;max-width:64ch;color:var(--mut)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 14px}
+.tabs button{font:800 16px "Nunito",sans-serif;padding:8px 18px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid #ffb74a;outline-offset:2px}
+.note{font-size:14px;color:var(--mut);margin-top:12px}
+.site{border:2px solid var(--ink);border-radius:14px;overflow:hidden;background:#fff;color:#14243d}
+.nav{display:flex;align-items:center;gap:6px 22px;padding:12px 26px;background:#fff;border-bottom:1px solid #d9e3f4;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font:800 18px "Fraunces",serif;color:#1d3a6e;margin-right:10px}
+.logo i{width:42px;height:42px;border-radius:50%;background:#2f6fdb;color:#fff;display:grid;place-items:center;font:800 14px "Nunito";font-style:normal}
+.nav a{color:#14243d;text-decoration:none;font-weight:700;font-size:15px}
+.nav a:hover{color:#2f6fdb}
+.nav .cta{margin-left:auto;background:#ffb74a;border-radius:999px;padding:8px 18px;color:#14243d}
+.btn{display:inline-block;border:0;border-radius:999px;padding:12px 26px;font:800 17px "Nunito",sans-serif;cursor:pointer;background:#ffb74a;color:#14243d;text-decoration:none}
+.btn.b{background:#2f6fdb;color:#fff}
+.btn.o{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px #fff}
+.pad{padding:50px 36px}
+.hero{background:linear-gradient(160deg,#1d3a6e,#2f6fdb);color:#fff}
+.hero h2{font-size:clamp(30px,5vw,52px);line-height:1.08;font-weight:800;max-width:18ch;margin-bottom:14px}
+.hero p{max-width:52ch;font-size:19px;margin:0 0 22px;color:#e1ebff}
+.pill{display:inline-block;background:rgba(255,255,255,.16);border-radius:999px;padding:3px 16px;font-size:14px;font-weight:800;margin-bottom:14px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);background:#fff;border-radius:20px;margin:-34px 36px 0;position:relative;box-shadow:0 10px 28px rgba(29,58,110,.18)}
+.stats div{padding:16px 8px;text-align:center;border-right:1px solid #e3eaf7}.stats div:last-child{border:0}
+.stats b{display:block;font:800 28px "Fraunces",serif;color:#2f6fdb}.stats span{font-size:14px;color:#55657f;line-height:1.25;display:block}
+.sec{padding:44px 36px}.band{background:#eef4ff}
+.sec h3{font-size:clamp(24px,3.4vw,34px);font-weight:800;margin-bottom:6px}
+.sub{color:#55657f;margin:0 0 22px;max-width:62ch}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:#fff;border:1px solid #d3ddee;border-radius:16px;padding:20px;box-shadow:0 4px 14px rgba(29,58,110,.07)}
+.card h4{font-size:19px;font-weight:800;margin-bottom:4px}.card p{margin:0;color:#55657f;font-size:16px}
+.card.s{border-top:5px solid #2f6fdb}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form .f{grid-column:1/-1}
+.form label{display:block;font-weight:800;font-size:15px;margin-bottom:2px}
+.form input,.form select,.form textarea{width:100%;padding:10px 12px;border:2px solid #c3d1ea;border-radius:12px;font:500 16px "Nunito",sans-serif;background:#fff;color:#14243d}
+.msg{grid-column:1/-1;font-weight:800;min-height:26px}.ok{color:#1c8a55}.er{color:#c4162f}
+.flt{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+.flt button{font:800 16px "Nunito",sans-serif;padding:7px 20px;border-radius:999px;border:2px solid #2f6fdb;background:#fff;color:#2f6fdb;cursor:pointer}
+.flt button[aria-pressed="true"]{background:#2f6fdb;color:#fff}
+.flt select{padding:8px 14px;border:2px solid #c3d1ea;border-radius:999px;font:700 16px "Nunito";background:#fff;color:#14243d}
+.cnt{font-weight:800;color:#55657f;margin:0 0 14px}
+.fc{display:flex;flex-direction:column;gap:6px;min-height:210px}
+.tag{align-self:flex-start;background:#e3eeff;color:#1d3a6e;border-radius:999px;padding:1px 14px;font-size:13px;font-weight:800}
+.tag.a{background:#ffe9c7;color:#6b4300}
+.fc .btn{margin-top:auto;font-size:15px;padding:9px 18px;align-self:flex-start}
+.two{display:grid;grid-template-columns:1.5fr 1fr;gap:28px;align-items:start}
+.side{background:#1d3a6e;color:#fff;border-radius:18px;padding:24px}
+.side h4{font-size:21px;margin-bottom:8px}.side p{margin:0 0 10px;color:#dbe7ff}
+.foot{background:#14243d;color:#d8e3f7;padding:36px 36px 22px}
+.fcols{display:grid;grid-template-columns:1.3fr 1fr 1.2fr;gap:28px}
+.foot h5{font:800 17px "Fraunces",serif;margin:0 0 10px;color:#fff}
+.foot a,.foot p{display:block;color:#d8e3f7;text-decoration:none;font-size:15px;margin:0 0 6px}
+.foot a:hover{text-decoration:underline}
+.nl{display:grid;grid-template-columns:1fr 1fr;gap:8px}.nl .f{grid-column:1/-1}
+.nl input{width:100%;padding:9px 12px;border:0;border-radius:10px;font:500 15px "Nunito";color:#14243d}
+.nl .btn{padding:9px 20px;font-size:16px}
+.legal{border-top:1px solid #2c3e5c;margin-top:22px;padding-top:14px;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;justify-content:space-between}
+.legal a{display:inline;font-size:13px;margin:0 12px 0 0}
+.demo{display:none}.demo.on{display:block}
+@media (max-width:860px){.stats{grid-template-columns:1fr 1fr;margin:-24px 14px 0}.stats div{border:0}.g3,.g4,.form,.two,.fcols{grid-template-columns:1fr}.pad,.sec,.foot{padding:30px 18px}.nav{padding:10px 16px}.nav .cta{margin-left:0}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="intro"><h1>Trois pages pensées pour une école de parentalité</h1>
+<p>Exemple pour l’École Familles Sereines (nom fictif), dans l’esprit d’un site de formations en ligne : menu, pied de page, puis trois pages à tester.</p></div>
+<div class="tabs" role="tablist" aria-label="Exemples de pages">
+<button role="tab" aria-selected="true" data-t="0">Page d’accueil de campagne</button>
+<button role="tab" aria-selected="false" data-t="1">Choisir ma formation</button>
+<button role="tab" aria-selected="false" data-t="2">Inscription et contact</button></div>
+
+<div class="site">
+<div class="nav"><div class="logo"><i>EFS</i>École Familles Sereines</div><a href="#" data-n>Formations Pro</a><a href="#" data-n>Auto-Formations</a><a href="#" data-n>Consultations</a><a href="#" data-n>Le Blog</a><a href="#" data-n>Témoignages</a><a href="#" data-n>À propos</a><a href="#" data-n>Contact</a><a class="cta" href="#" data-n>Inscriptions</a></div>
+
+<div class="demo on" id="d0">
+<div class="hero pad" style="padding-bottom:70px"><span class="pill">100 % en ligne, en direct</span>
+<h2>Deviens coach parental, accompagnée à chaque étape.</h2>
+<p>Des formations certifiantes en visioconférence, en petit groupe, avec un vrai suivi humain.</p>
+<button class="btn" id="go0">Être rappelée</button> <button class="btn o" data-go="1">Voir les formations</button></div>
+<div class="stats"><div><b>+2 500</b><span>Professionnelles formées</span></div><div><b>10 ans</b><span>d’expérience en formation</span></div><div><b>4,9/5</b><span>Note moyenne</span></div><div><b>92 %</b><span>de réussite aux certifications</span></div><div><b>97 %</b><span>d’apprenantes ravies</span></div></div>
+<div class="sec"><h3>Ce qui nous distingue</h3><p class="sub">Pas de vidéos seule devant un écran : chaque session est vivante et animée.</p>
+<div class="g4"><div class="card s"><h4>Jamais seule</h4><p>Une équipe répond à tes questions tout au long du parcours.</p></div><div class="card s"><h4>Sessions en direct</h4><p>Visioconférence interactive, en petit groupe.</p></div><div class="card s"><h4>Pensé pour le terrain</h4><p>Des contenus tournés vers la réalité des familles.</p></div><div class="card s"><h4>Tout est clair</h4><p>Contenus, plannings et tarifs annoncés avant l’inscription.</p></div></div></div>
+<div class="sec band"><h3>Comment démarrer</h3><p class="sub">Quatre étapes, dans cet ordre.</p>
+<div class="g4"><div class="card"><h4>1. Choisis ta formation</h4><p>Parcours les 6 programmes.</p></div><div class="card"><h4>2. Consulte le planning</h4><p>Vérifie que les dates te conviennent.</p></div><div class="card"><h4>3. Échange avec nous</h4><p>Un appel, sans rendez-vous et sans engagement.</p></div><div class="card"><h4>4. Inscris-toi en ligne</h4><p>Un formulaire simple et rapide.</p></div></div></div>
+<div class="sec" id="rap"><h3>Une question ? On te rappelle.</h3><p class="sub">Laisse tes coordonnées, nous t’appelons aux horaires de bureau.</p>
+<div class="form" data-f="r" style="max-width:760px">
+<div><label for="r1">Prénom</label><input id="r1" autocomplete="given-name"></div>
+<div><label for="r2">Téléphone</label><input id="r2" type="tel" autocomplete="tel"></div>
+<div class="f"><label for="r3">E-mail</label><input id="r3" type="email" autocomplete="email"></div>
+<div class="f"><button class="btn b" data-s="r">Être rappelée</button></div><div class="msg" id="m_r" aria-live="polite"></div></div></div>
+</div>
+
+<div class="demo" id="d1">
+<div class="hero pad"><span class="pill">6 formations pro et 3 auto-formations</span>
+<h2>Trouve la formation qui correspond à ton projet.</h2>
+<p>Filtre par type de parcours et par thème.</p></div>
+<div class="sec"><div class="flt" id="ty" role="group" aria-label="Type"><button aria-pressed="true" data-l="">Toutes</button><button aria-pressed="false" data-l="Formation pro">Formations pro</button><button aria-pressed="false" data-l="Auto-formation">Auto-formations</button>
+<label for="th" style="font-weight:800;margin-left:6px">Thème</label><select id="th"><option value="">Tous</option><option>Parentalité</option><option>Sommeil</option><option>Attachement</option><option>Émotions</option><option>Lancer son activité</option></select></div>
+<p class="cnt" id="cnt" aria-live="polite"></p><div class="g3" id="fg"></div></div>
+</div>
+
+<div class="demo" id="d2">
+<div class="hero pad"><span class="pill">Contact direct, sans rendez-vous</span>
+<h2>Inscris-toi, ton parcours commence dès la confirmation.</h2>
+<p>Choisis ta formation, nous te répondons rapidement.</p></div>
+<div class="sec"><div class="two">
+<div><h3>Formulaire d’inscription</h3><p class="sub">Quelques minutes suffisent.</p>
+<div class="form" data-f="i">
+<div class="f"><label for="i1">Formation</label><select id="i1"></select></div>
+<div><label for="i2">Prénom</label><input id="i2" autocomplete="given-name"></div>
+<div><label for="i3">Nom</label><input id="i3" autocomplete="family-name"></div>
+<div><label for="i4">E-mail</label><input id="i4" type="email" autocomplete="email"></div>
+<div><label for="i5">Financement</label><select id="i5"><option value="">Choisir</option><option>Je finance moi-même</option><option>Un organisme finance</option><option>Je ne sais pas encore</option></select></div>
+<div class="f"><label for="i6">Message</label><textarea id="i6" rows="3"></textarea></div>
+<div class="f"><button class="btn b" data-s="i">Envoyer mon inscription</button></div><div class="msg" id="m_i" aria-live="polite"></div></div></div>
+<div class="side"><h4>Parlons-en directement</h4><p>Pas besoin de réserver un créneau : appelle-nous aux horaires de bureau.</p><p><b>01 00 00 00 00</b></p><p>Ou par WhatsApp et e-mail : contact@exemple-efs.fr</p></div>
+</div></div>
+</div>
+
+<div class="foot"><div class="fcols">
+<div><div class="logo" style="color:#fff"><i>EFS</i>École Familles Sereines</div><p>Des formations professionnelles en visioconférence dédiées à l’accompagnement à la parentalité : éducation positive, sommeil du bébé, attachement, prévention du burn-out parental.</p></div>
+<div><h5>Formations professionnelles</h5><div id="ff"></div></div>
+<div><h5>Newsletter</h5><p>Inscris-toi et reçois notre ebook gratuit.</p>
+<div class="nl" data-f="n"><input id="n1" placeholder="Prénom" aria-label="Prénom" autocomplete="given-name"><input id="n2" placeholder="Nom" aria-label="Nom" autocomplete="family-name"><div class="f"><input id="n3" type="email" placeholder="E-mail" aria-label="E-mail" autocomplete="email"></div><div class="f"><button class="btn" data-s="n">C’est parti !</button></div><div class="msg ok" id="m_n" aria-live="polite" style="grid-column:1/-1;color:#9be3bd"></div></div></div></div>
+<div class="legal"><span>© 2013-2026 École Familles Sereines (nom fictif) – Tous droits réservés</span><span><a href="#" data-n>Plan du site</a><a href="#" data-n>Mentions légales</a><a href="#" data-n>CGV</a></span></div></div>
+</div>
+<p class="note">Maquette de démonstration. Le nom, le logo, les chiffres et les coordonnées sont fictifs. Les couleurs sont une proposition : elles seront remplacées par celles de la charte réelle.</p>
+</div>
+<script>
+var F=[["Coach parental en éducation positive","Accompagne les parents vers une éducation bienveillante et sereine.","Formation pro","Parentalité"],["Consultante sommeil bébé","Aide les familles à retrouver des nuits paisibles.","Formation pro","Sommeil"],["Théorie de l’attachement","Transforme la science de l’attachement en outils concrets.","Formation pro","Attachement"],["Prévention du burn-out parental","Soutiens les parents épuisés avant qu’ils craquent.","Formation pro","Parentalité"],["Éducateur des émotions","Accompagne les enfants vers des compétences émotionnelles solides.","Formation pro","Émotions"],["Gestion des conflits entre enfants","Aide parents et enseignants à désamorcer les tensions.","Formation pro","Émotions"],["E-learning Couple et bébé","Un programme pour traverser l’arrivée de bébé à deux.","Auto-formation","Parentalité"],["E-learning Éducation positive","Pour les parents passionnés et les pros en activité.","Auto-formation","Parentalité"],["E-learning Se lancer comme indépendante","Démarre ton activité de coach ou de consultante.","Auto-formation","Lancer son activité"]];
+var $=function(i){return document.getElementById(i)};
+$("ff").innerHTML=F.filter(function(f){return f[2]==="Formation pro"}).map(function(f){return '<a href="#" data-n>'+f[0]+'</a>'}).join("");
+$("i1").innerHTML='<option value="">Choisir</option>'+F.map(function(f){return "<option>"+f[0]+"</option>"}).join("");
+function show(i){document.querySelectorAll(".tabs button").forEach(function(b,k){b.setAttribute("aria-selected",k===i?"true":"false")});
+document.querySelectorAll(".demo").forEach(function(d,k){d.classList.toggle("on",k===i)})}
+document.querySelectorAll(".tabs button").forEach(function(b){b.onclick=function(){show(+b.dataset.t)}});
+document.querySelectorAll("[data-go]").forEach(function(b){b.onclick=function(){show(+b.dataset.go)}});
+document.addEventListener("click",function(e){if(e.target.closest("[data-n]"))e.preventDefault()});
+$("go0").onclick=function(){$("rap").scrollIntoView({behavior:"smooth",block:"center"})};
+var T={r:["Merci, nous vous rappelons très vite.","Remplissez tous les champs avec un e-mail valide."],i:["Merci, votre inscription est envoyée. Nous vous répondons rapidement.","Remplissez tous les champs avec un e-mail valide."],n:["Merci, ton ebook arrive par e-mail.","Indique ton prénom, ton nom et un e-mail valide."]};
+document.querySelectorAll("[data-s]").forEach(function(b){b.onclick=function(){
+var k=b.dataset.s,w=document.querySelector('[data-f="'+k+'"]'),m=$("m_"+k),els=w.querySelectorAll("input,select,textarea"),mail=w.querySelector('input[type="email"]').value.trim();
+var empty=Array.prototype.some.call(els,function(x){return!x.value.trim()});
+if(empty||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail)){m.className="msg er";m.textContent=T[k][1];return}
+m.className="msg ok";m.textContent=T[k][0]}});
+var ty="",th="";
+function draw(){var r=F.filter(function(f){return(!ty||f[2]===ty)&&(!th||f[3]===th)});
+$("cnt").textContent=r.length+(r.length>1?" formations":" formation");
+$("fg").innerHTML=r.length?r.map(function(f,k){return '<div class="card fc"><span class="tag'+(f[2]==="Auto-formation"?" a":"")+'">'+f[2]+'</span><h4>'+f[0]+'</h4><p>'+f[1]+'</p><button class="btn b" data-c="'+f[0]+'">S’inscrire</button></div>'}).join(""):"<p>Aucune formation pour ce filtre. Essayez un autre thème.</p>"}
+$("fg").onclick=function(e){var b=e.target.closest("[data-c]");if(b){$("i1").value=b.dataset.c;show(2)}};
+document.querySelectorAll("#ty button").forEach(function(b){b.onclick=function(){ty=b.dataset.l;document.querySelectorAll("#ty button").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});draw()}});
+$("th").onchange=function(){th=this.value;draw()};draw();
+</script>
+</body>
+</html>

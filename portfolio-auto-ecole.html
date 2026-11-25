@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rabia – Démos pour l’Auto-École Cap Permis</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef0f4;--ink:#1e2330;--mut:#5b6475;--line:#d5d9e2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141822;--ink:#eef0f6;--mut:#a4adc0;--line:#2f3748}}
+:root[data-theme="dark"]{--bg:#141822;--ink:#eef0f6;--mut:#a4adc0;--line:#2f3748}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 17px/1.55 "Barlow",system-ui,sans-serif}
+h1,h2,h3,h4{font-family:"Barlow Condensed","Arial Narrow",sans-serif;margin:0;text-transform:uppercase;letter-spacing:.01em}
+.wrap{max-width:1180px;margin:0 auto;padding:22px 16px 50px}
+.intro h1{font-size:clamp(32px,5.5vw,52px);line-height:1;font-weight:800;margin-bottom:10px}
+.intro p{margin:0;max-width:64ch;color:var(--mut)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 14px}
+.tabs button{font:700 16px "Barlow",sans-serif;padding:8px 18px;border-radius:8px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #19b36b;outline-offset:2px}
+.note{font-size:14px;color:var(--mut);margin-top:12px}
+.site{border:2px solid var(--ink);border-radius:12px;overflow:hidden;background:#fff;color:#1e2330}
+.nav{display:flex;align-items:center;gap:6px 22px;padding:12px 26px;background:#1e2330;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font:800 22px "Barlow Condensed",sans-serif;color:#fff;text-transform:uppercase;margin-right:8px}
+.logo i{width:40px;height:40px;border-radius:8px;background:#ffbf1f;color:#1e2330;display:grid;place-items:center;font:800 17px "Barlow Condensed";font-style:normal}
+.nav a{color:#e4e8f1;text-decoration:none;font-weight:700;font-size:15px}
+.nav a:hover{color:#ffbf1f}
+.nav .cta{margin-left:auto;background:#19b36b;border-radius:8px;padding:8px 18px;color:#fff}
+.btn{display:inline-block;border:0;border-radius:8px;padding:12px 26px;font:800 18px "Barlow Condensed",sans-serif;text-transform:uppercase;letter-spacing:.03em;cursor:pointer;background:#ffbf1f;color:#1e2330}
+.btn.g{background:#19b36b;color:#fff}.btn.d{background:#1e2330;color:#fff}
+.btn.o{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px #fff}
+.pad{padding:50px 36px}
+.hero{background:repeating-linear-gradient(135deg,#1e2330 0 28px,#232a3a 28px 56px);color:#fff;position:relative}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:10px;background:repeating-linear-gradient(90deg,#ffbf1f 0 40px,transparent 40px 70px)}
+.hero h2{font-size:clamp(38px,6.4vw,70px);line-height:.98;font-weight:800;max-width:14ch;margin-bottom:14px}
+.hero h2 em{font-style:normal;color:#ffbf1f}
+.hero p{max-width:52ch;font-size:19px;margin:0 0 22px;color:#dfe5f2}
+.pill{display:inline-block;background:#19b36b;border-radius:6px;padding:2px 14px;font:700 15px "Barlow Condensed";letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:2px solid #1e2330;border-radius:12px;margin:-4px 36px 0;position:relative;transform:translateY(22px);box-shadow:5px 5px 0 #ffbf1f}
+.stats div{padding:14px 8px;text-align:center;border-right:2px solid #e6e9f0}.stats div:last-child{border:0}
+.stats b{display:block;font:800 36px "Barlow Condensed",sans-serif;color:#19b36b}.stats span{font-size:14px;color:#5b6475;line-height:1.25;display:block}
+.sec{padding:44px 36px}.sec:first-of-type{padding-top:56px}.band{background:#f1f3f8}
+.sec h3{font-size:clamp(28px,4vw,40px);font-weight:800;margin-bottom:6px}
+.sub{color:#5b6475;margin:0 0 22px;max-width:62ch}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:#fff;border:2px solid #1e2330;border-radius:12px;padding:20px}
+.card h4{font-size:24px;font-weight:700;margin-bottom:4px}.card p{margin:0;color:#5b6475;font-size:16px}
+.card .n{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#ffbf1f;font:800 20px "Barlow Condensed";margin-bottom:6px}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form .f{grid-column:1/-1}
+.form label,.lbl{display:block;font-weight:700;font-size:15px;margin-bottom:2px}
+.form input,.form select{width:100%;padding:10px 12px;border:2px solid #1e2330;border-radius:8px;font:500 16px "Barlow",sans-serif;background:#fff;color:#1e2330}
+.msg{grid-column:1/-1;font-weight:700;min-height:26px}.ok{color:#14864f}.er{color:#c4162f}
+.tg{display:flex;align-items:center;gap:6px;margin:0 0 22px;flex-wrap:wrap}
+.tg button{font:700 17px "Barlow",sans-serif;padding:8px 20px;border:2px solid #1e2330;background:#fff;color:#1e2330;cursor:pointer}
+.tg button:first-child{border-radius:8px 0 0 8px}.tg button:last-of-type{border-radius:0 8px 8px 0;margin-left:-8px}
+.tg button[aria-pressed="true"]{background:#1e2330;color:#fff}
+.plan{display:flex;flex-direction:column;gap:6px}
+.plan.hot{box-shadow:6px 6px 0 #19b36b}
+.plan .pr{font:800 48px "Barlow Condensed",sans-serif;line-height:1}.plan .pr small{font:600 16px "Barlow";color:#5b6475}
+.plan ul{margin:6px 0 14px;padding-left:18px;color:#3d4659;font-size:16px}
+.plan .btn{margin-top:auto;text-align:center}
+.flag{align-self:flex-start;background:#ffbf1f;border-radius:6px;padding:0 10px;font:700 14px "Barlow Condensed";text-transform:uppercase;letter-spacing:.06em}
+.two{display:grid;grid-template-columns:1.5fr 1fr;gap:28px;align-items:start}
+.days{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+.days button,.slots button{font:700 16px "Barlow",sans-serif;padding:8px 14px;border:2px solid #1e2330;border-radius:8px;background:#fff;color:#1e2330;cursor:pointer}
+.days button[aria-pressed="true"],.slots button[aria-pressed="true"]{background:#19b36b;color:#fff;border-color:#19b36b}
+.slots{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.slots button:disabled{opacity:.4;text-decoration:line-through;cursor:not-allowed}
+.side{background:#1e2330;color:#fff;border-radius:12px;padding:24px}
+.side h4{font-size:26px;margin-bottom:8px;color:#ffbf1f}.side p{margin:0 0 10px;color:#dfe5f2}
+.foot{background:#141822;color:#d3d9e8;padding:34px 36px 20px}
+.fcols{display:grid;grid-template-columns:1.2fr 1fr 1.3fr;gap:28px}
+.foot h5{font:800 20px "Barlow Condensed",sans-serif;text-transform:uppercase;margin:0 0 10px;color:#ffbf1f}
+.foot a,.foot p{display:block;color:#d3d9e8;text-decoration:none;font-size:15px;margin:0 0 6px}
+.foot a:hover{text-decoration:underline}
+.legal{border-top:1px solid #2f3748;margin-top:20px;padding-top:14px;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px;justify-content:space-between}
+.legal a{display:inline;font-size:13px;margin:0 12px 0 0}
+.demo{display:none}.demo.on{display:block}
+@media (max-width:860px){.stats{grid-template-columns:1fr 1fr;margin:-4px 14px 0}.stats div:nth-child(2){border:0}.g3,.g4,.form,.two,.fcols{grid-template-columns:1fr}.pad,.sec,.foot{padding:30px 18px}.nav{padding:10px 16px}.nav .cta{margin-left:0}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="intro"><h1>Trois pages pensées pour une auto-école</h1>
+<p>Exemple pour l’Auto-École Cap Permis (nom fictif) : menu, pied de page, puis trois pages à tester. Réservez une heure de conduite, changez de boîte de vitesses, remplissez les formulaires.</p></div>
+<div class="tabs" role="tablist" aria-label="Exemples de pages">
+<button role="tab" aria-selected="true" data-t="0">Page d’accueil</button>
+<button role="tab" aria-selected="false" data-t="1">Tarifs et forfaits</button>
+<button role="tab" aria-selected="false" data-t="2">Réserver ma conduite</button></div>
+
+<div class="site">
+<div class="nav"><div class="logo"><i>CP</i>Cap Permis</div><a href="#" data-n>Permis B</a><a href="#" data-n>Code de la route</a><a href="#" data-n>Conduite accompagnée</a><a href="#" data-n>Tarifs</a><a href="#" data-n>Nos agences</a><a href="#" data-n>Contact</a><a class="cta" href="#" data-n>S’inscrire</a></div>
+
+<div class="demo on" id="d0">
+<div class="hero pad" style="padding-bottom:50px"><span class="pill">Permis B · Code · Conduite</span>
+<h2>Ton permis, <em>sans galère.</em></h2>
+<p>Un moniteur qui te suit du début à la fin, des horaires de conduite que tu choisis en ligne et un code accessible 7j/7.</p>
+<button class="btn" data-go="2">Réserver une heure</button> <button class="btn o" data-go="1">Voir les tarifs</button></div>
+<div class="stats"><div><b>88 %</b><span>de réussite à la première présentation</span></div><div><b>12 ans</b><span>d’expérience</span></div><div><b>3</b><span>agences</span></div><div><b>4,8/5</b><span>Note moyenne</span></div></div>
+<div class="sec"><h3>Pourquoi choisir Cap Permis</h3><p class="sub">Quatre engagements concrets.</p>
+<div class="g4"><div class="card"><h4>Moniteurs attitrés</h4><p>Le même moniteur t’accompagne au fil des leçons.</p></div><div class="card"><h4>Planning en ligne</h4><p>Tu réserves et déplaces tes heures de conduite en deux clics.</p></div><div class="card"><h4>Véhicules récents</h4><p>Boîte manuelle ou automatique, au choix.</p></div><div class="card"><h4>Code 7j/7</h4><p>Entraîne-toi sur ton téléphone, quand tu veux.</p></div></div></div>
+<div class="sec band"><h3>Les étapes du permis</h3><p class="sub">De l’inscription à l’examen.</p>
+<div class="g4"><div class="card"><span class="n">1</span><h4>Inscription</h4><p>Dossier et évaluation de départ.</p></div><div class="card"><span class="n">2</span><h4>Code de la route</h4><p>Cours et entraînement, puis examen.</p></div><div class="card"><span class="n">3</span><h4>Conduite</h4><p>Leçons avec ton moniteur.</p></div><div class="card"><span class="n">4</span><h4>Examen pratique</h4><p>Tu passes avec l’accord de ton moniteur.</p></div></div></div>
+<div class="sec" id="rap"><h3>Une question ? On te rappelle.</h3><p class="sub">Laisse ton numéro, une conseillère t’appelle aux horaires d’ouverture.</p>
+<div class="form" data-f="r" style="max-width:760px">
+<div><label for="r1">Prénom</label><input id="r1" autocomplete="given-name"></div>
+<div><label for="r2">Téléphone</label><input id="r2" type="tel" autocomplete="tel"></div>
+<div class="f"><label for="r3">E-mail</label><input id="r3" type="email" autocomplete="email"></div>
+<div class="f"><button class="btn g" data-s="r">Être rappelé(e)</button></div><div class="msg" id="m_r" aria-live="polite"></div></div></div>
+</div>
+
+<div class="demo" id="d1">
+<div class="hero pad"><span class="pill">Tarifs transparents</span>
+<h2>Choisis ton <em>forfait.</em></h2>
+<p>Le code en ligne est inclus. Le prix change selon la boîte de vitesses.</p></div>
+<div class="sec"><div class="tg" role="group" aria-label="Boîte de vitesses"><button aria-pressed="true" data-b="m">Boîte manuelle</button><button aria-pressed="false" data-b="a">Boîte automatique</button></div>
+<div class="g3">
+<div class="card plan"><h4>Essentiel</h4><div class="pr"><span data-m="1290" data-a="1190">1290</span> €</div><ul><li>Code en ligne illimité</li><li>20 h de conduite</li><li>Présentation à l’examen</li></ul><button class="btn d" data-c="Essentiel">Choisir ce forfait</button></div>
+<div class="card plan hot"><span class="flag">Le plus choisi</span><h4>Confort</h4><div class="pr"><span data-m="1690" data-a="1540">1690</span> €</div><ul><li>Code en ligne illimité</li><li>30 h de conduite</li><li>Heures de révision avant l’examen</li></ul><button class="btn g" data-c="Confort">Choisir ce forfait</button></div>
+<div class="card plan"><h4>Conduite accompagnée</h4><div class="pr"><span data-m="1390" data-a="1290">1390</span> €</div><ul><li>Code en ligne illimité</li><li>20 h de conduite</li><li>Rendez-vous pédagogiques inclus</li></ul><button class="btn d" data-c="Conduite accompagnée">Choisir ce forfait</button></div></div>
+<p class="sub" style="margin-top:18px">Paiement possible en plusieurs fois. Les prix de cette maquette sont fictifs.</p></div>
+</div>
+
+<div class="demo" id="d2">
+<div class="hero pad"><span class="pill">Réservation en ligne</span>
+<h2>Réserve ta <em>prochaine heure.</em></h2>
+<p>Choisis ton agence, un jour et un créneau. Confirmation immédiate par e-mail.</p></div>
+<div class="sec"><div class="two"><div>
+<span class="lbl">Agence</span><div class="form" style="margin-bottom:14px"><div class="f"><select id="ag" aria-label="Agence"><option value="">Choisir une agence</option><option>Centre-ville</option><option>Gare</option><option>Université</option></select></div></div>
+<span class="lbl">Jour</span><div class="days" id="days" role="group" aria-label="Jour"></div>
+<span class="lbl">Créneau</span><div class="slots" id="slots" role="group" aria-label="Créneau"></div>
+<div class="form" data-f="i">
+<div><label for="i1">Prénom et nom</label><input id="i1" autocomplete="name"></div>
+<div><label for="i2">Téléphone</label><input id="i2" type="tel" autocomplete="tel"></div>
+<div class="f"><label for="i3">E-mail</label><input id="i3" type="email" autocomplete="email"></div>
+<div class="f"><button class="btn g" id="book">Confirmer ma réservation</button></div><div class="msg" id="m_i" aria-live="polite"></div></div></div>
+<div class="side"><h4>Un doute ?</h4><p>Appelle ton agence : on décale ou on annule ton heure sans frais jusqu’à 48 h avant.</p><p><b>01 00 00 00 00</b></p><p>Du lundi au samedi, 9 h à 19 h.</p></div></div></div>
+</div>
+
+<div class="foot"><div class="fcols">
+<div><div class="logo"><i>CP</i>Cap Permis</div><p>Auto-école de proximité : code de la route, permis B et conduite accompagnée.</p><p>N° d’agrément : [à compléter]</p></div>
+<div><h5>Nos formations</h5><a href="#" data-n>Permis B</a><a href="#" data-n>Code de la route</a><a href="#" data-n>Conduite accompagnée</a><a href="#" data-n>Heures de perfectionnement</a><a href="#" data-n>Tarifs</a></div>
+<div><h5>Nos agences</h5><p>Centre-ville : 12 rue de la République</p><p>Gare : 4 place de la Gare</p><p>Université : 30 avenue des Étudiants</p><p>01 00 00 00 00 · contact@exemple-cappermis.fr</p></div></div>
+<div class="legal"><span>© 2026 Auto-École Cap Permis (nom fictif) – Tous droits réservés</span><span><a href="#" data-n>Mentions légales</a><a href="#" data-n>CGV</a><a href="#" data-n>Politique de cookies</a></span></div></div>
+</div>
+<p class="note">Maquette de démonstration. Le nom, le logo, les prix, les chiffres et les coordonnées sont fictifs. Les couleurs sont une proposition : elles seront remplacées par celles de la charte réelle.</p>
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+function show(i){document.querySelectorAll(".tabs button").forEach(function(b,k){b.setAttribute("aria-selected",k===i?"true":"false")});
+document.querySelectorAll(".demo").forEach(function(d,k){d.classList.toggle("on",k===i)})}
+document.querySelectorAll(".tabs button").forEach(function(b){b.onclick=function(){show(+b.dataset.t)}});
+document.querySelectorAll("[data-go]").forEach(function(b){b.onclick=function(){show(+b.dataset.go)}});
+document.addEventListener("click",function(e){if(e.target.closest("[data-n]"))e.preventDefault()});
+var T={r:["Merci, une conseillère vous rappelle très vite.","Remplissez tous les champs avec un e-mail valide."]};
+document.querySelectorAll("[data-s]").forEach(function(b){b.onclick=function(){
+var w=document.querySelector('[data-f="r"]'),m=$("m_r"),els=w.querySelectorAll("input"),mail=$("r3").value.trim();
+var empty=Array.prototype.some.call(els,function(x){return!x.value.trim()});
+if(empty||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail)){m.className="msg er";m.textContent=T.r[1];return}
+m.className="msg ok";m.textContent=T.r[0]}});
+var box="m";
+document.querySelectorAll(".tg button").forEach(function(b){b.onclick=function(){box=b.dataset.b;
+document.querySelectorAll(".tg button").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});
+document.querySelectorAll("[data-m]").forEach(function(s){s.textContent=box==="m"?s.dataset.m:s.dataset.a})}});
+document.querySelectorAll("[data-c]").forEach(function(b){b.onclick=function(){show(2);$("rap")&&0;window.scrollTo({top:0})}});
+var dayOk=-1,slotOk="",D=[],H=["9 h","10 h","11 h","14 h","15 h","16 h","17 h"];
+var d0=new Date();
+while(D.length<5){d0=new Date(d0.getTime()+86400000);if(d0.getDay()!==0)D.push(new Date(d0))}
+function drawSlots(){$("slots").innerHTML=H.map(function(h,k){var full=((dayOk<0?0:dayOk)*3+k)%4===0;
+return '<button '+(full?"disabled":"")+' aria-pressed="'+(slotOk===h?"true":"false")+'" data-h="'+h+'">'+h+(full?" (complet)":"")+'</button>'}).join("")}
+$("days").innerHTML=D.map(function(d,k){return '<button aria-pressed="false" data-d="'+k+'">'+d.toLocaleDateString("fr-FR",{weekday:"short",day:"numeric",month:"short"})+'</button>'}).join("");
+$("days").onclick=function(e){var b=e.target.closest("[data-d]");if(!b)return;dayOk=+b.dataset.d;slotOk="";
+document.querySelectorAll("#days button").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});drawSlots()};
+$("slots").onclick=function(e){var b=e.target.closest("[data-h]");if(!b||b.disabled)return;slotOk=b.dataset.h;drawSlots()};
+drawSlots();
+$("book").onclick=function(){var m=$("m_i"),mail=$("i3").value.trim();
+if(!$("ag").value||dayOk<0||!slotOk||!$("i1").value.trim()||!$("i2").value.trim()||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail)){m.className="msg er";m.textContent="Choisissez une agence, un jour, un créneau et remplissez vos coordonnées.";return}
+m.className="msg ok";m.textContent="C’est réservé : "+D[dayOk].toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"})+" à "+slotOk+", agence "+$("ag").value+". Un e-mail de confirmation vous est envoyé."};
+</script>
+</body>
+</html>
