@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rabia – Développeuse web full-stack</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef3f5;--ink:#14293a;--mut:#4d6272;--line:#cfdbe2;--card:#fff;--sea:#1f6f8b;--sun:#f0b429;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1c27;--ink:#e8f0f4;--mut:#9fb3c0;--line:#27404f;--card:#16293a;--sea:#6cc0dc}}
+:root[data-theme="dark"]{--bg:#0f1c27;--ink:#e8f0f4;--mut:#9fb3c0;--line:#27404f;--card:#16293a;--sea:#6cc0dc}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Source Sans 3",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.1;margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+header b{font:800 22px "Bricolage Grotesque",sans-serif}
+header a{color:var(--ink);text-decoration:none;margin-left:20px;font-weight:600}
+header a:hover,.link:hover{text-decoration:underline}
+.hero{padding:28px 0 26px}
+.hero h1{font-size:clamp(38px,7vw,72px);font-weight:800;max-width:14ch;letter-spacing:-.02em}
+.hero p{max-width:56ch;color:var(--mut);font-size:19px;margin:18px 0 0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 14px}
+.tabs button{font:600 16px "Source Sans 3",sans-serif;padding:10px 18px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.frame{border:2px solid var(--ink);border-radius:14px;overflow:hidden;background:#fff;color:#1b2430}
+.bar{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#dde6eb;border-bottom:2px solid var(--ink)}
+.bar i{width:11px;height:11px;border-radius:50%;background:#8fa3b0;display:block}
+.bar span{flex:1;background:#fff;border-radius:6px;padding:3px 12px;font-size:14px;color:#4d6272;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.demo{display:none;padding:0}.demo.on{display:block}
+.note{color:var(--mut);font-size:15px;margin:12px 2px 0}
+.btn{display:inline-block;border:0;border-radius:8px;padding:12px 22px;font:700 16px "Source Sans 3",sans-serif;cursor:pointer;background:#1b2430;color:#fff}
+.btn.sun{background:var(--sun);color:#1b2430}
+/* demo 1: produit */
+.p1{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.p1 .pic{background:linear-gradient(160deg,#f6e7c1,#e9c981);min-height:340px;display:grid;place-items:center}
+.lamp{position:relative;width:150px;height:240px}
+.lamp .sh{position:absolute;top:0;left:15px;width:120px;height:90px;background:var(--lc,#f0b429);border-radius:60px 60px 8px 8px/70px 70px 8px 8px;transition:background .25s}
+.lamp .st{position:absolute;top:90px;left:71px;width:8px;height:120px;background:#1b2430}
+.lamp .bs{position:absolute;bottom:0;left:35px;width:80px;height:12px;background:#1b2430;border-radius:6px}
+.p1 .inf{padding:30px}
+.p1 h3{font-size:30px}.price{font:800 26px "Bricolage Grotesque",sans-serif;margin:8px 0}
+.sw{display:flex;gap:10px;margin:12px 0 18px}
+.sw button{width:30px;height:30px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px #b9c6cf;cursor:pointer}
+.sw button[aria-pressed="true"]{box-shadow:0 0 0 2px #1b2430}
+.qty{display:inline-flex;align-items:center;border:2px solid #1b2430;border-radius:8px;margin-right:10px}
+.qty button{border:0;background:none;width:34px;height:40px;font-size:20px;cursor:pointer}
+.qty span{min-width:26px;text-align:center;font-weight:700}
+.p1 ul{padding-left:18px;margin:18px 0 0;color:#46586a}
+.cart{margin-top:14px;font-weight:600;min-height:26px;color:#1f6f3b}
+/* demo 2: landing */
+.l2 .top{background:#17324a;color:#fff;padding:54px 30px;text-align:center}
+.l2 h3{font-size:clamp(28px,4.5vw,44px);max-width:20ch;margin:0 auto 14px}
+.l2 .top p{max-width:52ch;margin:0 auto 24px;color:#c7d8e4}
+.l2 .fe{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:34px 30px}
+.l2 .fe h4{margin:0 0 6px;font:700 18px "Bricolage Grotesque",sans-serif}
+.l2 .fe p{margin:0;color:#46586a;font-size:16px}
+.l2 blockquote{margin:0;padding:26px 30px;background:#f4ecd6;font-size:19px}
+.l2 blockquote small{display:block;margin-top:8px;color:#5b5236;font-size:15px}
+.l2 .end{padding:34px 30px;text-align:center}
+/* demo 3: tarifs + contact */
+.t3{padding:34px 30px}
+.t3 h3{text-align:center;font-size:32px}
+.tg{display:flex;justify-content:center;align-items:center;gap:12px;margin:16px 0 22px;font-weight:600}
+.sw2{width:48px;height:26px;border-radius:13px;border:2px solid #1b2430;background:#fff;position:relative;cursor:pointer;padding:0}
+.sw2::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#1b2430;transition:left .2s}
+.sw2[aria-pressed="true"]::after{left:24px}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.plan{border:2px solid #cfdbe2;border-radius:12px;padding:22px}
+.plan.hot{border-color:#1b2430;box-shadow:6px 6px 0 #f0b429}
+.plan h4{margin:0;font:700 20px "Bricolage Grotesque",sans-serif}
+.plan .pr{font:800 34px "Bricolage Grotesque",sans-serif;margin:8px 0}
+.plan .pr small{font:400 15px "Source Sans 3",sans-serif;color:#5b6b78}
+.plan ul{padding-left:18px;margin:10px 0 16px;color:#46586a;font-size:16px}
+.ct{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ct label{display:block;font-weight:600;font-size:15px;margin-bottom:4px}
+.ct input,.ct textarea{width:100%;padding:10px 12px;border:2px solid #b9c6cf;border-radius:8px;font:inherit;color:#1b2430;background:#fff}
+.ct .full{grid-column:1/-1}
+.msg{grid-column:1/-1;font-weight:600;min-height:24px}
+.msg.ok{color:#1f6f3b}.msg.er{color:#b3261e}
+/* bas de page */
+section.skills{padding:54px 0 20px}
+section.skills h2{font-size:34px;margin-bottom:14px}
+.sk{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sk div{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:18px}
+.sk h3{font-size:19px;margin-bottom:6px}.sk p{margin:0;color:var(--mut);font-size:16px}
+footer{padding:40px 0 50px;border-top:2px solid var(--line);margin-top:40px}
+footer h2{font-size:30px;margin-bottom:8px}
+.link{color:var(--sea);font-weight:600}
+section.projets{padding:54px 0 10px}
+section.projets h2{font-size:34px;margin-bottom:14px}
+.pj{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.pj a{display:block;background:var(--card);border:2px solid var(--ink);border-radius:12px;padding:20px;color:var(--ink);text-decoration:none;box-shadow:5px 5px 0 var(--sun)}
+.pj a:hover{transform:translate(-2px,-2px)}
+.pj h3{font-size:22px;margin-bottom:6px}.pj p{margin:0 0 12px;color:var(--mut);font-size:16px}
+.pj span{font-weight:600;color:var(--sea)}
+@media (max-width:760px){.pj{grid-template-columns:1fr}}
+@media (max-width:760px){.p1,.l2 .fe,.plans,.ct,.sk{grid-template-columns:1fr}.p1 .pic{min-height:260px}header a{margin-left:12px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><b>Rabia</b><nav><a href="#demos">Démos</a><a href="#projets">Projets</a><a href="#competences">Compétences</a><a href="#contact">Contact</a></nav></header>
+
+<section class="hero" id="demos">
+<h1>Des pages commerciales qui donnent envie d’acheter.</h1>
+<p>Je suis développeuse web full-stack (React, TypeScript, Node.js, MySQL). Voici trois exemples de pages que je sais intégrer dans un site : testez-les, elles sont interactives.</p>
+<div class="tabs" role="tablist" aria-label="Exemples de pages">
+<button role="tab" aria-selected="true" data-t="0">Page produit</button>
+<button role="tab" aria-selected="false" data-t="1">Landing page</button>
+<button role="tab" aria-selected="false" data-t="2">Tarifs et contact</button>
+</div>
+
+<div class="frame">
+<div class="bar"><i></i><i></i><i></i><span id="url">lumen-lampes.exemple/lampe-aura</span></div>
+
+<div class="demo on" id="d0"><div class="p1">
+<div class="pic"><div class="lamp" id="lamp"><div class="sh"></div><div class="st"></div><div class="bs"></div></div></div>
+<div class="inf">
+<h3>Lampe de table Aura</h3>
+<div class="price">89 €</div>
+<p style="margin:0;color:#46586a">Une lumière chaude et douce pour le bureau ou la table de chevet.</p>
+<div class="sw" role="group" aria-label="Couleur">
+<button style="background:#f0b429" aria-label="Jaune" aria-pressed="true" data-c="#f0b429" data-n="jaune"></button>
+<button style="background:#1f6f8b" aria-label="Bleu" aria-pressed="false" data-c="#1f6f8b" data-n="bleu"></button>
+<button style="background:#d8d2c4" aria-label="Sable" aria-pressed="false" data-c="#d8d2c4" data-n="sable"></button>
+</div>
+<div class="qty"><button id="mn" aria-label="Moins">−</button><span id="q">1</span><button id="pl" aria-label="Plus">+</button></div>
+<button class="btn" id="add">Ajouter au panier</button>
+<div class="cart" id="cart" aria-live="polite"></div>
+<ul><li>Ampoule LED incluse, 8 W</li><li>Livraison offerte dès 60 €</li><li>Retour gratuit sous 30 jours</li></ul>
+</div></div></div>
+
+<div class="demo" id="d1"><div class="l2">
+<div class="top"><h3>Gérez vos demandes clients au même endroit.</h3><p>Flowdesk rassemble vos e-mails, appels et messages dans une seule boîte partagée par toute l’équipe.</p><button class="btn sun" data-go="2">Voir les tarifs</button></div>
+<div class="fe"><div><h4>Une boîte partagée</h4><p>Tout le monde voit qui répond à qui.</p></div><div><h4>Réponses types</h4><p>Gagnez du temps sur les questions fréquentes.</p></div><div><h4>Suivi des délais</h4><p>Repérez les demandes en attente depuis plus de 24 h.</p></div></div>
+<blockquote>« Nous répondons deux fois plus vite depuis que toute l’équipe travaille dans Flowdesk. »<small>Sophie M., responsable service client</small></blockquote>
+<div class="end"><h3 style="font-size:26px;margin-bottom:14px">Essayez gratuitement pendant 14 jours</h3><button class="btn" data-go="2">Commencer l’essai</button></div>
+</div></div>
+
+<div class="demo" id="d2"><div class="t3">
+<h3>Choisissez votre formule</h3>
+<div class="tg"><span>Mensuel</span><button class="sw2" id="sw" aria-pressed="false" aria-label="Facturation annuelle"></button><span>Annuel (2 mois offerts)</span></div>
+<div class="plans">
+<div class="plan"><h4>Solo</h4><div class="pr"><span data-m="9" data-a="90">9</span> €<small> /mois</small></div><ul><li>1 utilisateur</li><li>Boîte partagée</li></ul><button class="btn">Choisir Solo</button></div>
+<div class="plan hot"><h4>Équipe</h4><div class="pr"><span data-m="29" data-a="290">29</span> €<small> /mois</small></div><ul><li>Jusqu’à 10 utilisateurs</li><li>Réponses types</li><li>Suivi des délais</li></ul><button class="btn sun">Choisir Équipe</button></div>
+<div class="plan"><h4>Entreprise</h4><div class="pr"><span data-m="79" data-a="790">79</span> €<small> /mois</small></div><ul><li>Utilisateurs illimités</li><li>Support prioritaire</li></ul><button class="btn">Choisir Entreprise</button></div>
+</div>
+<div class="ct" id="ct">
+<div class="full"><h3 style="text-align:left;font-size:24px">Une question ? Écrivez-nous.</h3></div>
+<div><label for="n">Nom</label><input id="n" autocomplete="name"></div>
+<div><label for="e">E-mail</label><input id="e" type="email" autocomplete="email"></div>
+<div class="full"><label for="m">Message</label><textarea id="m" rows="3"></textarea></div>
+<div class="full"><button class="btn" id="send">Envoyer le message</button></div>
+<div class="msg" id="msg" aria-live="polite"></div>
+</div></div></div>
+</div>
+<p class="note">Ces trois pages sont des exemples fictifs, construits pour montrer le niveau de détail et l’interactivité que je peux livrer.</p>
+</section>
+
+<section class="projets" id="projets">
+<h2>Mes projets</h2>
+<div class="pj">
+<a href="portfolio-ecole-familles-sereines.html"><h3>École Familles Sereines</h3><p>Trois pages pour une école de formation en parentalité : page de campagne, choix de formation et inscription.</p><span>Voir l’exemple</span></a>
+<a href="portfolio-auto-ecole.html"><h3>Auto-École Cap Permis</h3><p>Trois pages pour une auto-école : accueil, forfaits avec choix de la boîte et réservation d’une heure de conduite.</p><span>Voir l’exemple</span></a>
+</div>
+</section>
+<section class="skills" id="competences">
+<h2>Ce que je réalise pour vous</h2>
+<div class="sk">
+<div><h3>Interface</h3><p>Pages responsives en React et TypeScript, rapides et accessibles.</p></div>
+<div><h3>Serveur</h3><p>API en Node.js et Express, base de données MySQL, panier et formulaires.</p></div>
+<div><h3>Intégration</h3><p>Ajout de pages dans votre site existant, avec votre charte graphique.</p></div>
+</div>
+</section>
+
+<footer id="contact"><h2>Parlons de votre projet</h2><p style="margin:0;color:var(--mut)">Écrivez-moi pour recevoir un devis ou plus d’exemples.</p><p><a class="link" href="mailto:votre@email.fr">votre@email.fr</a></p></footer>
+</div>
+
+<script>
+var urls=["lumen-lampes.exemple/lampe-aura","flowdesk.exemple","flowdesk.exemple/tarifs"];
+function show(i){
+document.querySelectorAll(".tabs button").forEach(function(b,k){b.setAttribute("aria-selected",k===i?"true":"false")});
+document.querySelectorAll(".demo").forEach(function(d,k){d.classList.toggle("on",k===i)});
+document.getElementById("url").textContent=urls[i];
+}
+document.querySelectorAll(".tabs button").forEach(function(b){b.onclick=function(){show(+b.dataset.t)}});
+document.querySelectorAll("[data-go]").forEach(function(b){b.onclick=function(){show(+b.dataset.go)}});
+var name="jaune",qty=1,lamp=document.getElementById("lamp");
+document.querySelectorAll(".sw button").forEach(function(b){b.onclick=function(){
+document.querySelectorAll(".sw button").forEach(function(x){x.setAttribute("aria-pressed","false")});
+b.setAttribute("aria-pressed","true");lamp.style.setProperty("--lc",b.dataset.c);name=b.dataset.n}});
+var q=document.getElementById("q");
+document.getElementById("mn").onclick=function(){if(qty>1)q.textContent=--qty};
+document.getElementById("pl").onclick=function(){if(qty<9)q.textContent=++qty};
+document.getElementById("add").onclick=function(){
+document.getElementById("cart").textContent=qty+" × Lampe Aura ("+name+") ajoutée au panier : "+(qty*89)+" €"};
+var sw=document.getElementById("sw");
+sw.onclick=function(){var an=sw.getAttribute("aria-pressed")!=="true";sw.setAttribute("aria-pressed",an?"true":"false");
+document.querySelectorAll("[data-m]").forEach(function(s){s.textContent=an?s.dataset.a:s.dataset.m;
+s.parentNode.querySelector("small").textContent=an?" /an":" /mois"})};
+document.getElementById("send").onclick=function(){
+var n=document.getElementById("n").value.trim(),e=document.getElementById("e").value.trim(),m=document.getElementById("m").value.trim(),g=document.getElementById("msg");
+if(!n||!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)||!m){g.className="msg er";g.textContent="Remplissez votre nom, un e-mail valide et votre message.";return}
+g.className="msg ok";g.textContent="Merci "+n+", votre message est envoyé. Nous répondons sous 24 h."};
+</script>
+</body>
+</html>
